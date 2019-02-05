@@ -1,19 +1,28 @@
-import React from "react";
-import { StackNavigator } from "react-navigation";
-import { Text } from "react-native";
+import React from 'react';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Text , View, Button} from 'react-native';
 
-{/* importing all the screens that my app will be using */}
-import 
+import HomeScreen from './screens/HomeScreen'
+import SearchItems from './screens/SeachItems'
+import ManageItems from './screens/ManageItems';
 
-const HomeScreen = () => <Text> This is the home screen </Text>;
 
-const App = StackNavigator({
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      headTitle: "Home"
-    }
+const RootStack = createStackNavigator (
+  {
+    Home: HomeScreen,
+    SearchItems: SearchItems,
+    ManageItems: ManageItems
+  },
+  {
+    initialRouteName: 'Home'
   }
-});
+);
 
-export default App;
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return  <AppContainer />;
+  }
+}
+

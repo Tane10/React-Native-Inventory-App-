@@ -1,8 +1,16 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text,View} from 'react-native';
 
-const ManageItems = () => (
-    <Text> This is the page that allows you to ManageItems. you will be able to delete a item and add items</Text>
-)
+class ManageItems extends React.Component {
+    render(){
+        return(
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text> Manage Items </Text>
+            </View>
+        )
+    }
+}
+
+
 
 export default ManageItems;

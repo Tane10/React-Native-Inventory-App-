@@ -1,8 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 
-const ManageItems = () => (
-    <Text> This is the page that allows you search all items in inventory and veiw all current items.</Text>
-)
+class SearchItems extends React.Component {
+    render () {
+      return (
+        <View tyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text> Search Items</Text>
+        </View>
+      );
+    }
+  }
 
-export default ManageItems;
+export default SearchItems;
