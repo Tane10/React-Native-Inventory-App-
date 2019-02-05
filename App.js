@@ -1,6 +1,9 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import { StyleSheet, Text, View } from "react-native";
+import { Text } from "react-native";
+
+{/* importing all the screens that my app will be using */}
+import 
 
 const HomeScreen = () => <Text> This is the home screen </Text>;
 
