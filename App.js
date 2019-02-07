@@ -1,42 +1,57 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { Container, Button, text, ListItem, Text } from "native-base";
-import Expo from "expo";
+import {
+  Container,
+  Button,
+  Body,
+  text,
+  ListItem,
+  Text,
+  Card,
+  CardItem
+} from "native-base";
+import { Expo, Font } from "expo";
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    appIsReady: false
+  };
 
-    this.state = { loading: true };
+  componentWillMount() {
+    this._loadAssetsAsync();
   }
 
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
-      Roboto: require("./node_modules/native-base/Fonts/Roboto.ttf"),
+  async _loadAssetsAsync() {
+    try {
+      await Font.loadAsync({
+        Roboto: require("./node_modules/native-base/Fonts/Roboto.ttf"),
 
-      Roboto_medium: require("./node_modules/native-base/Fonts/Roboto_medium.ttf"),
-
-      Ionicons: require("./node_modules/@expo/vector-icons/fonts/Ionicons.ttf")
-    });
-
-    this.setState({ loading: false });
-  }
-
-  render() {
-    if (this.state.loading) {
-      return <Expo.AppLoading />;
+        Roboto_medium: require("./node_modules/native-base/Fonts/Roboto_medium.ttf")
+      });
+    } catch (e) {
+      console.warn("Error boi");
+      console.log(e.message);
+    } finally {
+      this.setState({ appIsReady: true });
     }
-
-    return (
-      <Container>
-        <StatusBar hidden={true} />
-
-        <Button>
-          <Text>Button</Text>
-        </Button>
-
-        <ListItem />
-      </Container>
-    );
+  }
+  render() {
+    if (this.state.appIsReady) {
+      return (
+        <Container>
+          <Card>
+            <CardItem>
+              <Body>
+                <Button full rounded dark>
+                  <Text>Button</Text>
+                </Button>
+              </Body>
+            </CardItem>
+          </Card>
+          <ListItem />
+        </Container>
+      );
+    }
+    return null;
   }
 }
