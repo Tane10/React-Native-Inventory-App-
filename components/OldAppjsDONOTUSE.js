@@ -11,7 +11,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Motobike Parts Inventory </Text>
+        <Text style={styles.text}>Motobike Parts Inventory</Text>
         <HomeScreenButtons onGoToSearchScreen={this.goToSearchScreen} />
       </View>
     );
