@@ -10,48 +10,30 @@ import {
   Card,
   CardItem
 } from "native-base";
-import { Expo, Font } from "expo";
+import {createAppContainer,createStackNavigator} from 'react-navigation'
+
+import HomeScreen from "./screens/HomeScreenNativeBase"
+import SearchItems from "./screens/SeachItems"
+import ManageItems from "./screens/ManageItems"
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    SearchItems: SearchItems,
+    ManageItems: ManageItems
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
 
 export default class App extends React.Component {
-  state = {
-    appIsReady: false
-  };
-
-  componentWillMount() {
-    this._loadAssetsAsync();
-  }
-
-  async _loadAssetsAsync() {
-    try {
-      await Font.loadAsync({
-        Roboto: require("./node_modules/native-base/Fonts/Roboto.ttf"),
-
-        Roboto_medium: require("./node_modules/native-base/Fonts/Roboto_medium.ttf")
-      });
-    } catch (e) {
-      console.warn("Error boi");
-      console.log(e.message);
-    } finally {
-      this.setState({ appIsReady: true });
-    }
-  }
-  render() {
-    if (this.state.appIsReady) {
-      return (
-        <Container>
-          <Card>
-            <CardItem>
-              <Body>
-                <Button full rounded dark>
-                  <Text>Button</Text>
-                </Button>
-              </Body>
-            </CardItem>
-          </Card>
-          <ListItem />
-        </Container>
-      );
-    }
-    return null;
+  render(){
+    return(
+      <AppContainer />
+    )
   }
 }

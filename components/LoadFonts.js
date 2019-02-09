@@ -1,42 +1,36 @@
 import React from "react";
-import { StatusBar } from "react-native";
-import { Container, Button, text, ListItem, Text } from "native-base";
-import Expo from "expo";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+import { AppLoading, Font } from "expo";
 
-    this.state = { loading: true };
-  }
+import Roboto from "./node_modules/native-base/Fonts/Roboto.ttf";
+
+import Roboto_medium from "./node_modules/native-base/Fonts/Roboto_medium.ttf";
+
+class AppFontLoader extends React.Component {
+  state = {
+    fontLoaded: false
+  };
 
   async componentWillMount() {
-    await Expo.Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
+    try {
+      await Font.loadAsync({
+        Roboto,
+        Roboto_medium
+      });
 
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-
-      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
-    });
-
-    this.setState({ loading: false });
+      this.setState({ fontLoaded: true });
+    } catch (error) {
+      console.log("error loading icon fonts", error);
+    }
   }
 
   render() {
-    if (this.state.loading) {
-      return <Expo.AppLoading />;
+    if (!this.state.fontLoaded) {
+      return <AppLoading />;
     }
 
-    return (
-      <Container>
-        <StatusBar hidden={true} />
-
-        <Button>
-          <Text>Button</Text>
-        </Button>
-
-        <ListItem />
-      </Container>
-    );
+    return this.props.children;
   }
 }
+
+export { AppFontLoader };
