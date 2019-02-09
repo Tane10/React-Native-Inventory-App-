@@ -1,18 +1,14 @@
 import React from "react";
-import { StatusBar ,Image} from "react-native";
+import { StatusBar, Image } from "react-native";
 import {
   Container,
-  Header,
-  Title,
-  Left,
-  Icon,
-  Right,
   Button,
-  Body,
   Content,
   Text,
   Card,
-  CardItem
+  CardItem,
+  Input,
+  Item
 } from "native-base";
 import { Font } from "expo";
 
@@ -42,22 +38,28 @@ class HomeScreen extends React.Component {
   render() {
     if (this.state.fontIsReady) {
       return (
-        <Container>
-          <Header />
-          <Content padder>
+        <Container transparent>
+          <Content padder transparent>
             {/* content padder adds margins all around the content*/}
-            <Card transparent >
+            <Card transparent>
               <CardItem cardBody>
                 <Image
-                  style={{ resizeMode: "cover" ,width: 100, height: 100, flex: 1 , justifyContent:'center', alignItems: 'center'}}
-                  source={require('../assets/MotobikePartInABox.jpg')}
+                  style={{
+                    resizeMode: "cover",
+                    width: 100,
+                    height: 100,
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                  source={require("../assets/MotobikePartInABox.jpg")}
                 />
               </CardItem>
             </Card>
 
             <Card>
               <CardItem>
-              <Text>Motobike Part Invetory</Text>
+                <Text>Motobike Part Invetory</Text>
               </CardItem>
             </Card>
             <Button

@@ -3,35 +3,40 @@
   filter results on the screen and refresh the items display 
 display items froma postgressql or the most react native friendly */
 import React from "react";
-import { StatusBar ,Image} from "react-native";
+import { StatusBar, Image } from "react-native";
 import {
   Container,
   Header,
-  Title,
-  Left,
   Icon,
-  Right,
   Button,
-  Body,
   Content,
   Text,
   Card,
   CardItem,
   Input,
-  Item
+  ListItem,
+  Item,
+  List
 } from "native-base";
 import { Font } from "expo";
 
-class SearchItemSscreen extends React.Component {
+const ItemArray = [
+  { id: 1, title: "Front Wheel", Amount: 2 },
+  { id: 2, title: "Throttle", Amount: 9765 },
+  { id: 3, title: "Profile", Amount: 20 },
+  { id: 4, title: "Logout", Amount: 97 }
+];
+
+class SearchItemsScreen extends React.Component {
   state = {
     fontIsReady: false
   };
 
   componentWillMount() {
-    this._loadAssetsAsync();
+    this.LoadAssetsAsync();
   }
 
-  async _loadAssetsAsync() {
+  async LoadAssetsAsync() {
     try {
       await Font.loadAsync({
         Roboto: require("../node_modules/native-base/Fonts/Roboto.ttf"),
@@ -49,21 +54,29 @@ class SearchItemSscreen extends React.Component {
     if (this.state.fontIsReady) {
       return (
         <Container>
-          <Header searchbar rounded>
-            <Item>
-              <Icon name = "ios-search" />
-              <Input placeholder = "Search" />
+          <Header searchbar rounded >
+            <Item dark>
+              <Icon name="ios-search" />
+              <Input placeholder="Search" />
             </Item>
           </Header>
-          </Container>
-        );
-      }return null;
+          <Content>
+            <List
+              dataArray={ItemArray}
+              renderRow={data => (
+                <ListItem>
+                  <Text>
+                    {data.title}. {data.Amount}
+                  </Text>
+                </ListItem>
+              )}
+            />
+          </Content>
+        </Container>
+      );
+    }
+    return null;
   }
-};
+}
 
-
-const searchItems = props => {
-  return <Button title="Search Inventory" onPress={props.onGoToSearchScreen} />;
-};
-
-export default SearchItemSscreen;
+export default SearchItemsScreen;
