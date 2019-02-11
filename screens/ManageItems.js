@@ -48,12 +48,15 @@ class ManageItemsScreen extends React.Component {
     if (this.state.fontIsReady) {
       return (
         <Container>
-          <Header searchbar rounded transparent>
-            <Item>
-              <Icon name="ios-search" />
-              <Input placeholder="Search" />
-            </Item>
-          </Header>
+          <Header searchBar rounded>
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
           <Content>
             <Card>
               <CardItem>

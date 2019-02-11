@@ -20,6 +20,7 @@ import {
 } from "native-base";
 import { Font } from "expo";
 
+//Item Array constant with an ID,title and amount key and value 
 const ItemArray = [
   { id: 1, title: "Front Wheel", Amount: 2 },
   { id: 2, title: "Throttle", Amount: 9765 },
@@ -36,6 +37,7 @@ class SearchItemsScreen extends React.Component {
     this.LoadAssetsAsync();
   }
 
+  //Load font before page loads  catch any errors into console log if the font hasn't loaded 
   async LoadAssetsAsync() {
     try {
       await Font.loadAsync({
@@ -50,16 +52,20 @@ class SearchItemsScreen extends React.Component {
       this.setState({ fontIsReady: true });
     }
   }
+  //Render the search bar and list the title and amount from the array
   render() {
     if (this.state.fontIsReady) {
       return (
         <Container>
-          <Header searchbar rounded >
-            <Item dark>
-              <Icon name="ios-search" />
-              <Input placeholder="Search" />
-            </Item>
-          </Header>
+          <Header searchBar rounded>
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
           <Content>
             <List
               dataArray={ItemArray}
