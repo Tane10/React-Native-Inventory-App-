@@ -1,9 +1,22 @@
-// This will be our application entry. We'll setup our server here.
-const http = require('http');
-const app = require('../app'); // The express app we just created.
+const express = require("express");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
 
-const port = parseInt(process.env.PORT, 10) || 8000;
-app.set('port',port);
+// Setup the express app
+const app = express();
 
-const server = http.createServer(app);
-server.listen(port);
+// Log requests to console
+app.use(logger("dev"));
+
+// Parse incoming request data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Setup a default catch all route th`t send bach a welcome messgae in JOSN formate
+app.get("*", (req, res) =>
+  res.status(200).send({
+    message: "Welcome to the begining of nothingness."
+  })
+);
+
+module.exports = app;
