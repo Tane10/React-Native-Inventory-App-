@@ -24,9 +24,9 @@ class HomeScreen extends React.Component {
   async _loadAssetsAsync() {
     try {
       await Font.loadAsync({
-        Roboto: require("../node_modules/native-base/Fonts/Roboto.ttf"),
+        Roboto: require("../../node_modules/native-base/Fonts/Roboto.ttf"),
 
-        Roboto_medium: require("../node_modules/native-base/Fonts/Roboto_medium.ttf")
+        Roboto_medium: require("../../node_modules/native-base/Fonts/Roboto_medium.ttf")
       });
     } catch (e) {
       console.warn("Font is not loaded yet");
@@ -52,7 +52,7 @@ class HomeScreen extends React.Component {
                     justifyContent: "center",
                     alignItems: "center"
                   }}
-                  source={require("../assets/MotobikePartInABox.jpg")}
+                  source={require("../../assets/MotobikePartInABox.jpg")}
                 />
               </CardItem>
             </Card>

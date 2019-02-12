@@ -33,9 +33,9 @@ class ManageItemsScreen extends React.Component {
   async LoadAssetsAsync() {
     try {
       await Font.loadAsync({
-        Roboto: require("../node_modules/native-base/Fonts/Roboto.ttf"),
+        Roboto: require("../../node_modules/native-base/Fonts/Roboto.ttf"),
 
-        Roboto_medium: require("../node_modules/native-base/Fonts/Roboto_medium.ttf")
+        Roboto_medium: require("../../node_modules/native-base/Fonts/Roboto_medium.ttf")
       });
     } catch (e) {
       console.warn("Font is not loaded yet");
@@ -80,7 +80,8 @@ class ManageItemsScreen extends React.Component {
                 </List>
               </CardItem>
             </Card>
-            <Button rounded dark>
+            <Button rounded dark
+            onPress={() => this.props.navigation.navigate("AddItems")}>
               <Text>Add</Text>
             </Button>
             <Button rounded dark>

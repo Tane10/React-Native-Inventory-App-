@@ -59,9 +59,9 @@ class SearchItemsScreen extends React.Component {
   async LoadAssetsAsync() {
     try {
       await Font.loadAsync({
-        Roboto: require("../node_modules/native-base/Fonts/Roboto.ttf"),
+        Roboto: require("../../node_modules/native-base/Fonts/Roboto.ttf"),
 
-        Roboto_medium: require("../node_modules/native-base/Fonts/Roboto_medium.ttf")
+        Roboto_medium: require("../../node_modules/native-base/Fonts/Roboto_medium.ttf")
       });
     } catch (e) {
       console.warn("Font is not loaded yet");
