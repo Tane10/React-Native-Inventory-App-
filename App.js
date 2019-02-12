@@ -16,10 +16,10 @@ import ListItems from "./src/screens/ListItems"
 /*
 TODO: 
       - Clean up the add item page so it fits the design
-      - Add an item to firebase with muilple colums / tags 
+      - Add an item to firebase with muilple colums / tags (ID, Name, Amount, Quility, Quiliey Code)
       - List all items in a neat scroll box 
       - understand how item are posted to firebase and how i can query them
-      - 
+      - list all items with a check box next to each entry that can be used to select and delete and item
 */
 
 
