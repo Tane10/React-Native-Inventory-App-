@@ -1,7 +1,25 @@
 /*TODO: put a search bar in the header 
   as word is inputed dynatically search 
   filter results on the screen and refresh the items display 
-display items froma postgressql or the most react native friendly */
+display items froma postgressql or the most react native friendly 
+
+TODO: - Create a rest API from PostgresSQL and link it
+      - Added fake data and present it in a scroll view 
+      - Be able to do CRUD (Create, Read, Update,Delete) queires from GUI
+      - Example: select item via a click on GUI
+      - Click Delete and remove item from GUI and DB 
+      - DELETE ITEM FROM WEAREHOUSE
+      - beable to do post, update, get, delete requests from api
+      
+TODO: - have set up psql 
+      - HOW TO CONNECT TERMINAL:
+        - pqsl
+        - \c motobikeparts
+        - select * from items;
+        = \q to quit
+      - Database is called motobikeparts 
+      - Table is called items*/
+
 import React from "react";
 import { StatusBar, Image } from "react-native";
 import {

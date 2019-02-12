@@ -13,7 +13,7 @@ const RootStack = createStackNavigator(
     ManageItems: ManageItems
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "SearchItems"
   }
 );
 
