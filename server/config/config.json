@@ -1,23 +1,25 @@
 {
   "development": {
-    "username": "root",
+    "username": "tillie",
     "password": null,
-    "database": "database_development",
+    "database": "MotoBikeItemsInventoryDB",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "port": 5432,
+    "dialect": "postgres"
   },
   "test": {
-    "username": "root",
+    "username": "tillie",
     "password": null,
-    "database": "database_test",
+    "database": "MotoBikeItemsInventoryDB",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "port": 5432,
+    "dialect": "postgres"
   },
   "production": {
-    "username": "root",
+    "username": "tillie",
     "password": null,
-    "database": "database_production",
+    "database": "MotoBikeItemsInventoryDB",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }
