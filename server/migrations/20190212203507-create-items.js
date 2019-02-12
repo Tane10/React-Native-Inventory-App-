@@ -18,19 +18,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      itemDescription: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      price:{
-        allowNull: true,
-        type: Sequelize.DECIMAL
-      }
-
+      } 
     });
   },
   down: (queryInterface /* , Sequelize */) =>
-    queryInterface.dropTable('TodoItems'),
+    queryInterface.dropTable('Items'),
     
 };
