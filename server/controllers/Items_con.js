@@ -30,6 +30,9 @@ module.exports = {
     .findAll(req.params.id, {
       // Sequlize query command bellow
       // TODO: get the where clause working so i can search using id 
+      /*FIXME: currently not working. need to work out how to make a custome query call 
+               SELECT * FROM DB WHERE ID = 1;
+      */
       include: [
         {
           model: items,
