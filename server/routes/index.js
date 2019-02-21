@@ -16,11 +16,14 @@ module.exports = (app) => {
     message: 'Welcome to the items API!',
   }));
 
-  // Add items to the item controller from ../controllers using the post method
+  // Add items to the item controller from ../controllers using the POST method
   app.post('/api/items',itemsController.create);
 
-  // Get and list all items from the DB 
+  // GET and list all items from the DB 
   app.get('/api/list',itemsController.list);
 
+  // GET Items using the item ID
+  app.get('/api/list/:id', itemsController.retrive);
+  
 
 };

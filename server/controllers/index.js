@@ -1,5 +1,5 @@
 const items = require("./Items_con");
-const listItems = require("./ListItems_con");
+
 /*TODO: Create item Controllers for:
 
   //TODO: Create a Controller that gets all items from DB: {id, item,name, emount, quility}
@@ -11,6 +11,5 @@ const listItems = require("./ListItems_con");
   //TODO: Retivie item using item ID to list all its attributes */
 
 module.exports = {
-  items,
-  listItems
+  items
 };

@@ -22,9 +22,36 @@ module.exports = {
     return Items.all()
       .then(items => res.status(201).send(items))
       .catch(error => res.status(400).send(error));
+  },
+
+  // // Returns the item using its Id
+  retrive(req, res) {
+    return Items
+    .findAll(req.params.id, {
+      // Sequlize query command bellow
+      // TODO: get the where clause working so i can search using id 
+      include: [
+        {
+          model: items,
+          as: 'items',
+          where: {
+            'items.id':id
+          }
+        }
+      ]
+    })
+      .then(items => {
+        if (!items) {
+          return res.status(404).send({ message: "Item not found" });
+        }
+        return res.status(201).send(items);
+      })
+      .catch(error => res.status(400).send(error));
+    //For debuging reasons
+    //res.status(400).send({ message: "This is a bad reqest" })
   }
 
-  // Delete an item from the DB using its ID
+ // Delete an item from the DB using its ID
 
-  // Update an items informtion using its id
+  //Update an items informtion using its id
 };

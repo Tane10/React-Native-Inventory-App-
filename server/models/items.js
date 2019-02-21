@@ -1,11 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
-  const Items = sequelize.define("Items", {
+  const Items = sequelize.define('Items', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   });
-  Items.associate = function(models) {
+
+  Items.associate = (models) => {
     // associations can be defined here
   };
   return Items;
