@@ -32,7 +32,7 @@ const RootStack = createStackNavigator(
     ListItems: ListItems
   },
   {
-    initialRouteName: "AddItems"
+    initialRouteName: "ManageItems"
   }
 );
 

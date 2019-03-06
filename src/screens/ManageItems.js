@@ -21,7 +21,7 @@ import {
 } from "native-base";
 import { Font } from "expo";
 
-class ManageItemsScreen extends React.Component {
+class ManageItemsScreen extends React.Component { 
   state = {
     fontIsReady: false
   };
@@ -32,6 +32,12 @@ class ManageItemsScreen extends React.Component {
 
   async LoadAssetsAsync() {
     try {
+      // use to get json from nodeJS server
+      // let response =  await fetch("http://localhost:4000/api/items");
+      // let jsonRepsonse = await response.json();
+      // console.log(jsonRepsonse)
+
+      // used to get fonts needed for native base
       await Font.loadAsync({
         Roboto: require("../../node_modules/native-base/Fonts/Roboto.ttf"),
 
