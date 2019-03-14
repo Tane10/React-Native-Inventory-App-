@@ -5,10 +5,7 @@ import {createAppContainer,createStackNavigator} from 'react-navigation'
 import HomeScreen from "./src/screens/HomeScreenNativeBase"
 import SearchItems from "./src/screens/SearchItemsScreen"
 import ManageItems from "./src/screens/ManageItems"
-//import AddItems from "./src/screens/AddItem"
-import AddItems from "./src/screens/AddItemsFirebase"
-import ListItems from "./src/screens/ListItems"
-
+import ListItemsAPI from "./src/screens/ItemsListRestApi"
 
 //TODO: clean up all pages
 
@@ -28,11 +25,10 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     SearchItems: SearchItems,
     ManageItems: ManageItems,
-    AddItems: AddItems,
-    ListItems: ListItems
+    ListItemsAPI : ListItemsAPI
   },
   {
-    initialRouteName: "ManageItems"
+    initialRouteName: "ListItemsAPI"
   }
 );
 
