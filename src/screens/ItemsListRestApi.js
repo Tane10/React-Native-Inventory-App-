@@ -16,7 +16,16 @@
 
 import React from "react";
 import { StatusBar, Image } from "react-native";
-import { Container, Text, Body, Content } from "native-base";
+import {
+  Container,
+  Text,
+  Body,
+  Content,
+  ListItem,
+  List,
+  View
+} from "native-base";
+import { FlatList } from "react-native-gesture-handler";
 
 export default class ListItemsRESTAPI extends React.Component {
   constructor(props) {
@@ -27,27 +36,33 @@ export default class ListItemsRESTAPI extends React.Component {
     };
   }
 
-   componentDidMount() {
-     return(
-       fetch("https://dffa62f9.ngrok.io/api/items")
-       .then( (response) => response.json() )
-          .then((responseJSON) => {
-             this.setState({
-               isLoading: false,
-               dataSource: responseJSON
-             }),
-             console.log(responseJSON)
-          })
-          .catch((error) => {
-              console.log(error);
-           })
-       )
-    }
+  componentDidMount() {
+    return fetch("http://5b72a052.ngrok.io/api/items")
+      .then(response => response.json())
+      .then(responseJSON => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJSON
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <Container>
         <Content>
-          <Text>This is just a test to return some date</Text>
+          {/*iterate through the array and show the items */}
+          <FlatList
+            data={this.state.dataSource}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item.itemName}</Text>
+              </View>
+            )}
+          />
         </Content>
       </Container>
     );
